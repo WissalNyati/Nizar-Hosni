@@ -10,10 +10,15 @@ export default defineConfig({
     assetsDir: 'assets',
     sourcemap: true,
     rollupOptions: {
-      output: {
-        manualChunks: undefined,
+      input: {
+        main: './index.html',
       },
-    },
+      output: {
+        entryFileNames: 'assets/[name].[hash].js',
+        chunkFileNames: 'assets/[name].[hash].js',
+        assetFileNames: 'assets/[name].[hash].[ext]'
+      }
+    }
   },
   optimizeDeps: {
     exclude: ['lucide-react'],
